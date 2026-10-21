@@ -1,0 +1,284 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>João Vinicius Santos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Layout: dark studio hero with the headline in the left negative space and nav on top,
+     then wide sections that pair a big two-tone headline with its content.
+     One deliberate look: ink-blue black with gold, so there is no light theme. */
+  :root {
+    --bg: #080910;
+    --surface: #10121b;
+    --fg: #ece9e1;
+    --muted: #9a9ca8;
+    --line: #232634;
+    --gold: #e2b53d;
+    --gold-hi: #f8e9ae;
+    --gold-lo: #a97a16;
+    --gold-line: rgba(226, 181, 61, 0.4);
+    --gold-ink: #15110a;
+    --veil: rgba(6, 7, 12, 0.78);
+    --font-display: "Anton", "Arial Narrow", Impact, sans-serif;
+    --font-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 17px; line-height: 1.6; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  .wrap { width: 100%; max-width: 1160px; margin-inline: auto; padding-inline: 20px; }
+
+  /* gold gradient text */
+  .gold { color: var(--gold); background: linear-gradient(180deg, var(--gold-hi) 0%, var(--gold) 52%, var(--gold-lo) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .display { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; line-height: 1; letter-spacing: .005em; margin: 0; text-wrap: balance; }
+  .display span { display: block; }
+
+  /* hero */
+  .hero { position: relative; background: #000; }
+  .nav { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 24px; padding: 14px 20px; }
+  .brand { font-family: var(--font-display); font-size: 1.3rem; letter-spacing: .06em; }
+  .nav nav { display: flex; flex-wrap: wrap; gap: 4px 22px; font-size: .95rem; }
+  .nav nav a { text-decoration: none; color: var(--muted); padding-block: 4px; }
+  .nav nav a:hover { color: var(--gold); }
+  .hero-media { position: relative; aspect-ratio: 16 / 9; max-width: 100%; overflow: hidden; }
+  .hero-media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-media::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(90deg, var(--veil), transparent 45%, transparent 66%, var(--veil)); }
+  .hero-copy { padding: 28px 20px 44px; display: grid; gap: 22px; }
+  h1.display { font-size: clamp(3.2rem, 17vw, 6rem); line-height: .98; }
+  .roles { margin: 0; color: var(--muted); max-width: 34ch; }
+  .cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+  .btn { display: inline-block; padding: 12px 20px; font-weight: 600; font-size: .95rem; text-decoration: none; border: 1px solid var(--gold-line); border-radius: 2px; color: var(--fg); background: transparent; }
+  .btn:hover { border-color: var(--gold); color: var(--gold-hi); }
+  .btn.solid { background: var(--gold); border-color: var(--gold); color: var(--gold-ink); }
+  .btn.solid:hover { color: var(--gold-ink); filter: brightness(1.1); }
+
+  @media (min-width: 880px) {
+    .nav { position: absolute; inset: 0 0 auto 0; z-index: 2; padding: 22px clamp(24px, 5vw, 80px); }
+    .hero-copy { position: absolute; inset: 0; padding: 70px clamp(24px, 5vw, 80px) 0; align-content: center; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); pointer-events: none; }
+    .hero-copy > * { pointer-events: auto; }
+    .hero-copy .l { grid-column: 1; }
+    h1.display { font-size: clamp(3rem, 6.8vw, 8rem); }
+    .roles { margin-bottom: 8px; }
+  }
+
+  /* sections */
+  section { border-top: 1px solid var(--line); }
+  .sec { padding-block: 72px; }
+  h2.display { font-size: clamp(2.4rem, 6.4vw, 4.6rem); margin-bottom: 36px; }
+  .sec p { margin: 0 0 1em; max-width: 62ch; }
+  .muted { color: var(--muted); }
+
+  /* sobre */
+  .about, .card, .cols, .job { grid-template-columns: minmax(0, 1fr); }
+  .about > *, .card > *, .cols > *, .job > * { min-width: 0; }
+  .about { display: grid; gap: 40px; }
+  @media (min-width: 880px) { .about { grid-template-columns: minmax(0, 1fr) 340px; gap: 64px; align-items: start; } }
+  .frame { border: 1px solid var(--gold); padding: 8px; background: var(--surface); box-shadow: 0 0 40px rgba(226, 181, 61, .12); max-width: 340px; }
+  .frame img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; height: auto; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(130px, 100%), 1fr)); gap: 12px; margin-top: 36px; max-width: 640px; }
+  .stat { border: 1px solid var(--line); background: var(--surface); padding: 16px 16px 14px; }
+  .stat b { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.9rem, 6vw, 2.6rem); overflow-wrap: anywhere; line-height: 1; display: block; font-variant-numeric: tabular-nums; }
+  .stat span { display: block; color: var(--muted); font-size: .88rem; line-height: 1.35; margin-top: 8px; }
+
+  /* projeto */
+  .card { border: 1px solid var(--gold-line); background: linear-gradient(180deg, rgba(226,181,61,.07), transparent 40%), var(--surface); padding: clamp(20px, 4vw, 40px); display: grid; gap: 28px; }
+  @media (min-width: 880px) { .card { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 56px; } }
+  .card h3 { font-family: var(--font-display); font-weight: 400; font-size: clamp(2rem, 4vw, 3rem); text-transform: uppercase; margin: 0 0 14px; line-height: 1; }
+  .card .meta { margin: 0; display: grid; gap: 0; }
+  .meta div { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .meta div:first-child { border-top: 1px solid var(--line); }
+  .meta dt { color: var(--muted); }
+  .meta dd { margin: 0; text-align: right; min-width: 0; }
+  .tags { list-style: none; margin: 18px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .tags li { border: 1px solid var(--gold-line); color: var(--gold-hi); padding: 3px 12px; border-radius: 2px; font-size: .88rem; }
+
+  /* formação */
+  .cols { display: grid; gap: 40px 64px; }
+  @media (min-width: 880px) { .cols { grid-template-columns: 1fr 1fr; } }
+  h3.sub { font-size: 1.05rem; font-weight: 600; margin: 0 0 16px; }
+  .row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 20px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .row:first-of-type { border-top: 1px solid var(--line); }
+  .status { color: var(--gold); font-weight: 600; }
+  .hours { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+  .hours li { display: grid; gap: 6px; }
+  .hours .top { display: flex; justify-content: space-between; gap: 12px; }
+  .hours .top span:last-child { font-variant-numeric: tabular-nums; color: var(--muted); }
+  .track { height: 8px; background: var(--line); }
+  .track i { display: block; height: 100%; background: linear-gradient(90deg, var(--gold-lo), var(--gold)); }
+  .scale { margin: 12px 0 0; font-size: .85rem; color: var(--muted); }
+  .chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips li { border: 1px solid var(--line); background: var(--surface); padding: 4px 12px; border-radius: 2px; font-size: .92rem; }
+  .full { grid-column: 1 / -1; }
+
+  /* experiência */
+  .job { display: grid; gap: 20px 56px; border-left: 2px solid var(--gold); padding-left: clamp(18px, 3vw, 36px); }
+  @media (min-width: 880px) { .job { grid-template-columns: 240px minmax(0, 1fr); } }
+  .job .when { font-family: var(--font-display); font-size: 1.6rem; text-transform: uppercase; line-height: 1.1; }
+  .job h3 { font-size: 1.3rem; margin: 0 0 4px; font-weight: 600; }
+
+  /* contato */
+  .contact-list { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; max-width: 560px; }
+  .contact-list li { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+  .contact-list .k { color: var(--muted); width: 100%; font-size: .9rem; }
+  .contact-list .v { font-size: 1.25rem; font-weight: 500; user-select: all; overflow-wrap: anywhere; min-width: 0; text-decoration: none; }
+  .contact-list .v:hover { color: var(--gold-hi); }
+  .copy { font: inherit; font-size: .9rem; color: var(--fg); background: transparent; border: 1px solid var(--gold-line); border-radius: 2px; padding: 7px 16px; cursor: pointer; }
+  .copy:hover { border-color: var(--gold); }
+
+  footer { border-top: 1px solid var(--line); padding-block: 28px; color: var(--muted); font-size: .9rem; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+
+<div class="hero">
+  <header class="nav">
+    <span class="brand gold">JOÃO VINICIUS</span>
+    <nav aria-label="Seções">
+      <a href="#sobre">Sobre</a>
+      <a href="#planify">Projeto</a>
+      <a href="#formacao">Formação</a>
+      <a href="#experiencia">Experiência</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+  <div class="hero-media">
+    <video id="hv" src="hero.mp4" poster="poster.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+  </div>
+  <div class="hero-copy">
+    <div class="l">
+      <h1 class="display"><span>Da carga</span><span class="gold">aos dados.</span></h1>
+      <p class="roles" style="margin-top:18px">João Vinicius Bernardino dos Santos. Conferente de carga e auxiliar logístico, estudando análise de dados com foco em Power BI e Excel.</p>
+      <div class="cta">
+        <a class="btn solid" href="#planify">Ver o projeto Planify</a>
+        <a class="btn" href="#contato">Contato</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section id="sobre">
+    <div class="wrap sec">
+      <div class="about">
+        <div>
+          <h2 class="display"><span>Quatro anos conferindo carga.</span><span class="gold">Agora lendo os números.</span></h2>
+          <p>Trabalho na JSL, na unidade Atmus Filtration. Nesse tempo ganhei maturidade profissional e prática no atendimento ao cliente, sempre com foco em qualidade, organização e eficiência.</p>
+          <p>Estudo análise e desenvolvimento de dados e quero evoluir em Power BI e Excel dentro de uma empresa. Tenho disponibilidade de horário para atender os requisitos dos clientes.</p>
+          <div class="stats">
+            <div class="stat"><b class="gold">4 anos</b><span>na JSL, unidade Atmus Filtration</span></div>
+            <div class="stat"><b class="gold">3 áreas</b><span>de saúde no projeto Planify</span></div>
+            <div class="stat"><b class="gold">52 h</b><span>de Excel, Python e Power BI em curso</span></div>
+            <div class="stat"><b class="gold">14</b><span>módulos concluídos em hardware</span></div>
+          </div>
+        </div>
+        <div class="frame"><img src="portrait.jpg" alt="João Vinicius em pé no estúdio, de terno preto e camisa branca" width="768" height="960"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="planify">
+    <div class="wrap sec">
+      <h2 class="display"><span>Projeto Planify.</span><span class="gold">Saúde e triagem.</span></h2>
+      <article class="card">
+        <div>
+          <h3>Planify</h3>
+          <p>Projeto Integrado do curso de ADS: um app que conecta o paciente ao profissional da área que ele precisa. Facilita os agendamentos e a triagem do estagiário e do paciente que passam pelas consultas.</p>
+          <p class="muted">A ideia nasceu de pensar no bem-estar da gente e do próximo. A página de nutrição já tem ficha com cálculo de IMC.</p>
+          <ul class="tags"><li>Nutrição</li><li>Fisioterapia</li><li>Psicologia</li></ul>
+        </div>
+        <dl class="meta">
+          <div><dt>Tipo</dt><dd>Projeto Integrado (ADS)</dd></div>
+          <div><dt>Áreas</dt><dd>Nutrição, fisioterapia, psicologia</dd></div>
+          <div><dt>Tecnologias</dt><dd>HTML, CSS e JavaScript</dd></div>
+          <div><dt>Foco</dt><dd>Agendamento e triagem</dd></div>
+        </dl>
+      </article>
+    </div>
+  </section>
+
+  <section id="formacao">
+    <div class="wrap sec">
+      <h2 class="display"><span>Formação.</span><span class="gold">Sempre em curso.</span></h2>
+      <div class="cols">
+        <div>
+          <h3 class="sub">Acadêmica</h3>
+          <div class="row"><span>Anhanguera, Análise e Desenvolvimento de Dados</span><span class="status">Cursando</span></div>
+          <div class="row"><span>E. E. Ponte Alta V, Ensino Médio</span><span class="muted">Concluído</span></div>
+        </div>
+        <div>
+          <h3 class="sub">Fundação Bradesco <span class="status" style="font-weight:500">· cursando</span></h3>
+          <ul class="hours">
+            <li><div class="top"><span>Excel básico</span><span>10 h</span></div><div class="track"><i style="width:33.3%"></i></div></li>
+            <li><div class="top"><span>Python básico</span><span>30 h</span></div><div class="track"><i style="width:100%"></i></div></li>
+            <li><div class="top"><span>Power BI básico</span><span>12 h</span></div><div class="track"><i style="width:40%"></i></div></li>
+          </ul>
+          <p class="scale">Barras na mesma escala, de 0 a 30 horas.</p>
+        </div>
+        <div class="full">
+          <h3 class="sub">Hardware, Microcamp <span class="muted" style="font-weight:400">· concluído</span></h3>
+          <ul class="chips">
+            <li>Eletroeletrônica</li><li>Hardware teórico</li><li>Hardware prático</li><li>MS-DOS</li><li>Windows</li>
+            <li>Rede cabeada</li><li>Rede wireless</li><li>Projeto de hardware</li><li>Firewall</li>
+            <li>Manutenção de impressoras</li><li>Manutenção de monitores</li><li>Manutenção de notebook</li><li>Manutenção de smartphones</li><li>Robótica</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experiencia">
+    <div class="wrap sec">
+      <h2 class="display"><span>Experiência.</span><span class="gold">Carga e cliente.</span></h2>
+      <div class="job">
+        <div class="when gold">4 anos<br>até hoje</div>
+        <div>
+          <h3>Júlio Simões Logística (JSL)</h3>
+          <p class="muted">Unidade Atmus Filtration · Conferente de Carga e Auxiliar Logístico</p>
+          <p>Aprimorei a comunicação com os clientes e a dedicação necessária para atender cada demanda. Hoje atuo com foco em qualidade, organização e eficiência operacional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="wrap sec">
+      <h2 class="display"><span>Vamos conversar.</span><span class="gold">Qualquer horário.</span></h2>
+      <ul class="contact-list">
+        <li><span class="k">E-mail</span><a class="v" href="mailto:joao.vin.b22@gmail.com">joao.vin.b22@gmail.com</a><button class="copy" type="button" data-copy="joao.vin.b22@gmail.com">Copiar</button></li>
+        <li><span class="k">Telefone</span><a class="v" href="tel:+5511983909709">(11) 98390-9709</a><button class="copy" type="button" data-copy="(11) 98390-9709">Copiar</button></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">João Vinicius Bernardino dos Santos</div>
+</footer>
+
+<script>
+  (function () {
+    var v = document.getElementById('hv');
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce && v) { v.removeAttribute('autoplay'); v.pause(); }
+    else if (v && v.play) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+
+    document.querySelectorAll('.copy').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var text = b.getAttribute('data-copy');
+        var done = function () { b.textContent = 'Copiado'; setTimeout(function () { b.textContent = 'Copiar'; }, 1600); };
+        var fallback = function () {
+          var el = b.parentNode.querySelector('.v');
+          var r = document.createRange(); r.selectNodeContents(el);
+          var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+          b.textContent = 'Selecionado';
+        };
+        try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
+      });
+    });
+  })();
+</script>
+
+</body></html>
